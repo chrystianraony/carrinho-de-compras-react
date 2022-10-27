@@ -1,22 +1,24 @@
-import { Button, Card } from "react-bootstrap"
-import { useShoppingCart } from "../context/ShoppingCartContext"
-import { formatCurrency } from "../util/formatCurrency"
+import { Button, Card } from "react-bootstrap";
+import { useShoppingCart } from "../context/ShoppingCartContext";
+import { formatCurrency } from "../util/formatCurrency";
 
 type StoreItemProps = {
-  id: number
-  name: string
-  price: number
-  imgUrl: string
-}
+  id: number;
+  name: string;
+  price: number;
+  imgUrl: string;
+};
 
 export function StoreItem({ id, name, price, imgUrl }: StoreItemProps) {
   const {
     getItemQuantity,
     increaseCartQuantity,
     decreaseCartQuantity,
+    openCart,
     removeFromCart,
-  } = useShoppingCart()
-  const quantity = getItemQuantity(id)
+  } = useShoppingCart();
+
+  const quantity = getItemQuantity(id);
 
   return (
     <Card className="h-100">
@@ -34,7 +36,7 @@ export function StoreItem({ id, name, price, imgUrl }: StoreItemProps) {
         <div className="mt-auto">
           {quantity === 0 ? (
             <Button className="w-100" onClick={() => increaseCartQuantity(id)}>
-              + Add To Cart
+              Adicionar ao carrinho
             </Button>
           ) : (
             <div
@@ -44,25 +46,14 @@ export function StoreItem({ id, name, price, imgUrl }: StoreItemProps) {
               <div
                 className="d-flex align-items-center justify-content-center"
                 style={{ gap: ".5rem" }}
-              >
-                Item no Carrinho
-                <Button variant="outline-primary" onClick={() => decreaseCartQuantity(id)}>-</Button>
-                <div>
-                  <span className="fs-3">{quantity}</span>
-                </div>
-                <Button variant="outline-primary" onClick={() => increaseCartQuantity(id)}>+</Button>
-              </div>
-              <Button
-                onClick={() => removeFromCart(id)}
-                variant="danger"
-                size="sm"
-              >
-                Remover Item
+              ></div>
+              <Button onClick={openCart} variant="success" size="sm">
+                Visualizar Carrinho
               </Button>
             </div>
           )}
         </div>
       </Card.Body>
     </Card>
-  )
+  );
 }
