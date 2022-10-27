@@ -1,15 +1,22 @@
-import { Button, Card } from "react-bootstrap";
-import { formatCurrency } from "../util/formatCurrency";
+import { Button, Card } from "react-bootstrap"
+import { useShoppingCart } from "../context/ShoppingCartContext"
+import { formatCurrency } from "../util/formatCurrency"
 
 type StoreItemProps = {
-  id: number;
-  name: string;
-  price: number;
-  imgUrl: string;
-};
+  id: number
+  name: string
+  price: number
+  imgUrl: string
+}
 
 export function StoreItem({ id, name, price, imgUrl }: StoreItemProps) {
-  const quantity = 0
+  const {
+    getItemQuantity,
+    increaseCartQuantity,
+    decreaseCartQuantity,
+    removeFromCart,
+  } = useShoppingCart()
+  const quantity = getItemQuantity(id)
 
   return (
     <Card className="h-100">
@@ -26,7 +33,9 @@ export function StoreItem({ id, name, price, imgUrl }: StoreItemProps) {
         </Card.Title>
         <div className="mt-auto">
           {quantity === 0 ? (
-            <Button className="w-100">Adicionar no carrinho</Button>
+            <Button className="w-100" onClick={() => increaseCartQuantity(id)}>
+              + Add To Cart
+            </Button>
           ) : (
             <div
               className="d-flex align-items-center flex-column"
@@ -36,18 +45,24 @@ export function StoreItem({ id, name, price, imgUrl }: StoreItemProps) {
                 className="d-flex align-items-center justify-content-center"
                 style={{ gap: ".5rem" }}
               >
-                  ITEM NO CARRINHO
-                <Button variant="outline-warning">-</Button>
+                Item no Carrinho
+                <Button variant="outline-primary" onClick={() => decreaseCartQuantity(id)}>-</Button>
                 <div>
                   <span className="fs-3">{quantity}</span>
                 </div>
-                <Button variant="outline-success">+</Button>
+                <Button variant="outline-primary" onClick={() => increaseCartQuantity(id)}>+</Button>
               </div>
-              <Button variant="outline-danger" size="sm">Remover Item</Button>
+              <Button
+                onClick={() => removeFromCart(id)}
+                variant="danger"
+                size="sm"
+              >
+                Remover Item
+              </Button>
             </div>
           )}
         </div>
       </Card.Body>
     </Card>
-  );
+  )
 }

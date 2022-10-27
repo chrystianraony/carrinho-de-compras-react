@@ -9,6 +9,7 @@ type CartItemProps = {
 }
 
 export function CartItem({ id, quantity }: CartItemProps) {
+  
   const { removeFromCart } = useShoppingCart()
   const item = storeItems.find(i => i.id === id)
   if (item == null) return null
