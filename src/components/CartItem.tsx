@@ -29,7 +29,7 @@ export function CartItem({ id, quantity }: CartItemProps) {
         <div>
           {item.name}{" "}
           {quantity > 1 && (
-            <span className="text-muted" style={{ fontSize: ".65rem" }}>
+            <span className="text-muted" style={{ fontSize: ".7rem" }}>
               x{quantity}
             </span>
           )}
@@ -39,7 +39,6 @@ export function CartItem({ id, quantity }: CartItemProps) {
         </div>
       </div>
 
-      <p>{quantity}</p>
 
       <Button
         variant="outline-danger"

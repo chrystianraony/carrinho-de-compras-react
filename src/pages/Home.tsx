@@ -1,3 +1,8 @@
 export function Home() {
-  return <h1>HOME</h1>
+  return (
+    <div>
+      <h1>Projeto Teste de carrinho de compras!</h1>
+      <h2>Click em Store para ver os produtos</h2>
+    </div>
+  )
 }
