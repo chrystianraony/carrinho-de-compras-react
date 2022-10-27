@@ -1,0 +1,50 @@
+[
+  {
+    "id": 1,
+    "name": "Shoes1",
+    "price": 49.90,
+    "imgUrl": "/imgs/tenis1.jpg"
+  },
+  {
+    "id": 2,
+    "name": "Shoes2",
+    "price": 39.90,
+    "imgUrl": "/imgs/tenis2.jpg"
+  },
+  {
+    "id": 3,
+    "name": "Shoes3",
+    "price": 55.10,
+    "imgUrl": "/imgs/tenis3.jpg"
+  },
+  {
+    "id": 4,
+    "name": "Shoes4",
+    "price": 48.99,
+    "imgUrl": "/imgs/tenis4.jpg"
+  },
+  {
+    "id": 5,
+    "name": "Shoes5",
+    "price": 51.50,
+    "imgUrl": "/imgs/tenis5.jpg"
+  },
+  {
+    "id": 6,
+    "name": "Shoes6",
+    "price": 49.90,
+    "imgUrl": "/imgs/tenis6.jpg"
+  },
+  {
+    "id": 7,
+    "name": "Shoes7",
+    "price": 37.80,
+    "imgUrl": "/imgs/tenis7.jpg"
+  },
+  {
+    "id": 8,
+    "name": "Shoes8",
+    "price": 9.99,
+    "imgUrl": "/imgs/tenis8.jpg"
+  }
+]
